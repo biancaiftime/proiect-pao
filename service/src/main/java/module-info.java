@@ -1,2 +1,3 @@
 module service {
+    requires model;
 }
