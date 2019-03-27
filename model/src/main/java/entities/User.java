@@ -13,8 +13,10 @@ public class User {
     private Address address;
     private Contact contact;
 
-    public User(Long id, String name, String surname, int age, Address address, Contact contact) {
-        this.id = Objects.requireNonNull(id);
+    public User() {
+    }
+
+    public User(String name, String surname, int age, Address address, Contact contact) {
         if (name != null && !name.trim().isEmpty())
             this.name = name;
         else throw new IllegalArgumentException("Name cannot be null or empty.");

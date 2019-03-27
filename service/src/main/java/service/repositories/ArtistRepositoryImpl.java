@@ -3,10 +3,13 @@ package service.repositories;
 import entities.Artist;
 import repositories.ArtistRepository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class ArtistRepositoryImpl implements ArtistRepository {
+    private final Map<Long, Artist> artists = new HashMap<>();
     @Override
     public Optional<Artist> findById(Long id) {
         return Optional.empty();

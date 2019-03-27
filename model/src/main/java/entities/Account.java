@@ -12,8 +12,10 @@ public class Account {
         return id;
     }
 
-    public Account(Long id, String username, String password, User user) {
-        this.id = Objects.requireNonNull(id);
+    public Account() {
+    }
+
+    public Account(String username, String password, User user) {
         if (username != null && !username.trim().isEmpty())
             this.username = username;
         else throw new IllegalArgumentException("Username cannot be null or empty.");

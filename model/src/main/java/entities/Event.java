@@ -20,8 +20,10 @@ public class Event {
     private String details;
     private List<Artist> artists;
 
-    public Event(Long id, String name, Category category, EventType type, Location location, Date date, Status status, String details, List<Artist> artists) {
-        this.id = Objects.requireNonNull(id);
+    public Event() {
+    }
+
+    public Event(String name, Category category, EventType type, Location location, Date date, Status status, String details, List<Artist> artists) {
         if (name != null && !name.trim().isEmpty())
             this.name = name;
         else throw new IllegalArgumentException("Name cannot be null or empty.");

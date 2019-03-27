@@ -3,10 +3,13 @@ package service.repositories;
 import entities.Address;
 import repositories.AddressRepository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class AddressRepositoryImpl implements AddressRepository {
+    private final Map<Long, Address> addresses = new HashMap<>();
     @Override
     public Optional<Address> findById(Long id) {
         return Optional.empty();

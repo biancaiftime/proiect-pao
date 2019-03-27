@@ -9,12 +9,14 @@ public class Address {
     private String street;
     private String streetNumber;
 
+    public Address() {
+    }
+
     public Long getId() {
         return id;
     }
 
-    public Address(Long id, String region, String city, String street, String streetNumber) {
-        this.id = Objects.requireNonNull(id);
+    public Address(String region, String city, String street, String streetNumber) {
         if (region != null && !region.trim().isEmpty())
             this.region = region.trim();
         else throw new IllegalArgumentException("Region cannot be null or empty.");

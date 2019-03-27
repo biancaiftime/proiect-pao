@@ -7,8 +7,10 @@ public class Artist {
     private String name;
     private String description;
 
-    public Artist(Long id, String name, String description) {
-        this.id = Objects.requireNonNull(id);
+    public Artist() {
+    }
+
+    public Artist(String name, String description) {
         if (name != null && !name.trim().isEmpty())
             this.name = name;
         else throw new IllegalArgumentException("Name cannot be null or empty.");

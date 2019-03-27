@@ -3,10 +3,13 @@ package service.repositories;
 import entities.Location;
 import repositories.LocationRepository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class LocationRepositoryImpl implements LocationRepository {
+    private final Map<Long, Location> locations = new HashMap<>();
     @Override
     public Optional<Location> findById(Long id) {
         return Optional.empty();

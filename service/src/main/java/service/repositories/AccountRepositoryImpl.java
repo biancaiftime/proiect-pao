@@ -3,10 +3,13 @@ package service.repositories;
 import entities.Account;
 import repositories.AccountRepository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class AccountRepositoryImpl implements AccountRepository {
+    private final Map<Long, Account> accounts = new HashMap<>();
     @Override
     public Optional<Account> findById(Long id) {
         return Optional.empty();

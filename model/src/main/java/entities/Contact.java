@@ -7,8 +7,10 @@ public class Contact {
     private String email;
     private String phone;
 
-    public Contact(Long id, String email, String phone) {
-        this.id = Objects.requireNonNull(id);
+    public Contact() {
+    }
+
+    public Contact(String email, String phone) {
         if (email != null && !email.trim().isEmpty())
             this.email = email.trim();
         else throw new IllegalArgumentException("Email cannot be null or empty.");

@@ -10,8 +10,10 @@ public class Location {
     private Address address;
     private String details;
 
-    public Location(Long id,String name, Address address, String details) {
-        this.id = Objects.requireNonNull(id);
+    public Location() {
+    }
+
+    public Location(String name, Address address, String details) {
         if (name != null && !name.trim().isEmpty())
             this.name = name;
         else throw new IllegalArgumentException("Name cannot be null or empty.");
