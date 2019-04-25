@@ -36,4 +36,11 @@ public class Location {
     public String getDetails() {
         return details;
     }
+
+    @Override
+    public String toString() {
+        return "Name: " + this.name + ", address: " + this.address
+                + ", details: " + this.address;
+    }
 }
+

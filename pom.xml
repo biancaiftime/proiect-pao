@@ -11,6 +11,7 @@
     <modules>
         <module>model</module>
         <module>service</module>
+        <module>csv-reader</module>
     </modules>
 
     <properties>
@@ -31,6 +32,19 @@
             </plugin>
         </plugins>
     </build>
-
+    <dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+    </dependencies>
+    </dependencyManagement>
 
 </project>

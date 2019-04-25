@@ -37,4 +37,9 @@ public class Account {
     public User getUser() {
         return user;
     }
+
+    @Override
+    public String toString() {
+        return "Username: " + this.username + ", user: " + this.user;
+    }
 }

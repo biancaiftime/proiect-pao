@@ -28,4 +28,9 @@ public class Artist {
     public Long getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "Name: " + this.name + ", description: " + this.description;
+    }
 }

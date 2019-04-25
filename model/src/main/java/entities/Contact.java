@@ -30,4 +30,9 @@ public class Contact {
     public Long getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "email: " + this.email + ", phone: " + this.phone;
+    }
 }

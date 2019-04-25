@@ -48,4 +48,9 @@ public class Address {
         return streetNumber;
     }
 
+    @Override
+    public String toString() {
+        return "Region: " + this.region + ", city: " + this.city
+                + ", street: " + this.street + ", street number: " + this.streetNumber;
+    }
 }

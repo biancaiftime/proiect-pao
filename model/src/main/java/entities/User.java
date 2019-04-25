@@ -53,4 +53,10 @@ public class User {
     public Long getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "Name: " + this.name + ", surname: " + this.surname + ", age: " + this.age
+                + ", Address: " + this.address + ", contact: " + this.contact;
+    }
 }

@@ -70,4 +70,9 @@ public class Event {
     public Long getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
