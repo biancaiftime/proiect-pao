@@ -73,6 +73,7 @@ public class Event {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Event: " + this.name + ", category: " + this.category + ", type: " + this.type + ", location: " +
+                this.location + ", date: " + this.date + ", details: " + this.details + ", artist: " + this.artist;
     }
 }

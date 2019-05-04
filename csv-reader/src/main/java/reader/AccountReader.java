@@ -10,32 +10,29 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccountReader {
+public class AccountReader extends Reader<Account> {
+
     public static void main(String args[]) {
-        CSVReader csvReader = null;
 
-        try {
-            csvReader = new CSVReader(new FileReader("E:\\Projects\\Laboratoare an II sem II\\PAO\\proiect-pao\\csv-reader\\src\\main\\resources\\account.csv"), ',', '"', 1);
+        AccountReader accountReader = new AccountReader();
 
-            String[] accountDetails = null;
+        List<Account> accountList = accountReader.readAndCreateObjects(
+                "E:\\Projects\\Laboratoare an II sem II\\PAO\\proiect-pao\\csv-reader\\src\\main\\resources\\account.csv");
 
-            List<Account> accountList = new ArrayList<Account>();
-
-            while ((accountDetails = csvReader.readNext()) != null) {
-
-                Account emp = new Account(accountDetails[0], accountDetails[1], new User(accountDetails[2],
-                        accountDetails[3], Integer.parseInt(accountDetails[4]),
-                        new Address(accountDetails[5], accountDetails[6], accountDetails[7], accountDetails[8]),
-                        new Contact(accountDetails[9], accountDetails[10])));
-
-                accountList.add(emp);
-            }
-
-            for (Account account : accountList)
-                System.out.println(account);
-
-        } catch (Exception ee) {
-            ee.printStackTrace();
+        for(Account account : accountList){
+            System.out.println(account);
         }
+
+    }
+
+    @Override
+    Account createObject(String[] objectDetails) {
+
+        Account account = new Account(objectDetails[0], objectDetails[1], new User(objectDetails[2],
+                objectDetails[3], Integer.parseInt(objectDetails[4]),
+                new Address(objectDetails[5], objectDetails[6], objectDetails[7], objectDetails[8]),
+                new Contact(objectDetails[9], objectDetails[10])));
+
+        return account;
     }
 }
