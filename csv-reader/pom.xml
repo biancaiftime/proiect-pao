@@ -11,7 +11,8 @@
 
     <artifactId>csv-reader</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <dependencies>
+
+    <dependencies >
         <dependency>
             <groupId>com.opencsv</groupId>
             <artifactId>opencsv</artifactId>
@@ -21,6 +22,15 @@
             <artifactId>model</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

@@ -2,14 +2,18 @@ package reader;
 
 import entities.Artist;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ArtistReader extends Reader<Artist> {
 
+    private static List<Artist> artistList = new ArrayList<Artist>();
+
     public static void main(String[] args) {
         ArtistReader artistReader = new ArtistReader();
 
-        List<Artist> artistList = artistReader.readAndCreateObjects(
+        artistList = artistReader.readAndCreateObjects(
                 "E:\\Projects\\Laboratoare an II sem II\\PAO\\proiect-pao\\csv-reader\\src\\main\\resources\\artist.csv"
         );
 
@@ -17,6 +21,10 @@ public class ArtistReader extends Reader<Artist> {
             System.out.println(artist);
     }
 
+
+    public static List<Artist> getArtistList() {
+        return Collections.unmodifiableList(artistList);
+    }
 
     @Override
     Artist createObject(String[] objectDetails) {

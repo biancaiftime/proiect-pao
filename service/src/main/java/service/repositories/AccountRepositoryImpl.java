@@ -2,41 +2,49 @@ package service.repositories;
 
 import entities.Account;
 import repositories.AccountRepository;
+import writer.Writer;
 
 import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class AccountRepositoryImpl implements AccountRepository {
-    private final Map<Long, Account> accounts = new HashMap<>();
+    private final Map<Long, Account> accountsMap = new HashMap<>();
+    private final List<Account> accounts = new ArrayList<Account>();
+    private final Writer audit = new Writer();
 
     @Override
     public Optional<Account> findById(Long id) {
-        return Optional.ofNullable(accounts.get(id));
+        audit.writeData("AccountRepository", "findById");
+        return Optional.ofNullable(accountsMap.get(id));
     }
 
     @Override
     public List<Account> getAll() {
-        return new ArrayList<>(accounts.values());
+        audit.writeData("AccountRepository", "getAll");
+        return Collections.unmodifiableList(accounts);
     }
 
     @Override
     public Long put(Account item) {
-        accounts.put(item.getId(), item);
+        audit.writeData("AccountRepository","put");
+        accounts.add(item);
+        accountsMap.put(item.getId(), item);
         return item.getId();
     }
 
     @Override
     public List<Long> putAll(List<Account> items) {
+        audit.writeData("AccountRepository","putAll");
 
-        final Map<Long, Account> newValues = items.stream()
+        /*final Map<Long, Account> newValues = items.stream()
                 .collect(Collectors.toMap(Account::getId, Function.identity()));
 
-        accounts.putAll(newValues);
+        accountsMap.putAll(newValues);*/
+        accounts.addAll(items);
 
-        final var ids = items.stream()
+        /*final var ids = items.stream()
                 .map(Account::getId)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList());*/
+        final var ids = new ArrayList<Long>();
 
         return ids;
     }

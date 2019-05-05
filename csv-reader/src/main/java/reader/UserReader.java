@@ -4,20 +4,29 @@ import entities.Address;
 import entities.Contact;
 import entities.User;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class UserReader extends Reader<User> {
+
+    private static List<User> userList = new ArrayList<User>();
 
     public static void main(String[] args) {
 
         UserReader userReader = new UserReader();
 
-        List<User> userList = userReader.readAndCreateObjects(
+        userList = userReader.readAndCreateObjects(
                 "E:\\Projects\\Laboratoare an II sem II\\PAO\\proiect-pao\\csv-reader\\src\\main\\resources\\user.csv"
         );
 
-        for(User user : userList)
+        for (User user : userList)
             System.out.println(user);
+    }
+
+
+    public static List<User> getUserList() {
+        return Collections.unmodifiableList(userList);
     }
 
     @Override

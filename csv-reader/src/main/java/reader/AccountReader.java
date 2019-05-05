@@ -8,21 +8,30 @@ import entities.User;
 
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AccountReader extends Reader<Account> {
+
+    private static List<Account> accountList = new ArrayList<Account>();
 
     public static void main(String args[]) {
 
         AccountReader accountReader = new AccountReader();
 
-        List<Account> accountList = accountReader.readAndCreateObjects(
+        accountList = accountReader.readAndCreateObjects(
                 "E:\\Projects\\Laboratoare an II sem II\\PAO\\proiect-pao\\csv-reader\\src\\main\\resources\\account.csv");
 
         for(Account account : accountList){
             System.out.println(account);
         }
 
+
+
+    }
+
+    public static List<Account> getAccountList() {
+        return Collections.unmodifiableList(accountList);
     }
 
     @Override

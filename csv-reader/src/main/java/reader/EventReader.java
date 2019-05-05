@@ -6,21 +6,29 @@ import utils.EventType;
 import utils.Status;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class EventReader extends Reader<Event> {
+
+    private static List<Event> eventList = new ArrayList<Event>();
 
     public static void main(String args[]) {
 
         EventReader eventReader = new EventReader();
 
-        List<Event> eventList = eventReader.readAndCreateObjects(
+        eventList = eventReader.readAndCreateObjects(
                 "E:\\Projects\\Laboratoare an II sem II\\PAO\\proiect-pao\\csv-reader\\src\\main\\resources\\event.csv");
 
         for (Event event : eventList) {
             System.out.println(event);
         }
 
+    }
+
+    public static List<Event> getEventList() {
+        return Collections.unmodifiableList(eventList);
     }
 
     @Override

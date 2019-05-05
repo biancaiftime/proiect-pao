@@ -2,31 +2,40 @@ package service.repositories;
 
 import entities.Artist;
 import repositories.ArtistRepository;
+import writer.Writer;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class ArtistRepositoryImpl implements ArtistRepository {
-    private final Map<Long, Artist> artists = new HashMap<>();
+    private final Map<Long, Artist> artistsMap = new HashMap<>();
+    private final List<Artist> artists = new ArrayList<Artist>();
+    private final Writer audit = new Writer();
+
     @Override
     public Optional<Artist> findById(Long id) {
-        return Optional.empty();
+        audit.writeData("ArtistRepository","findById");
+        return Optional.ofNullable(artistsMap.get(id));
     }
 
     @Override
     public List<Artist> getAll() {
-        return null;
+        audit.writeData("ArtistRepository","getAll");
+        return Collections.unmodifiableList(artists);
     }
 
     @Override
     public Long put(Artist item) {
-        return null;
+        audit.writeData("ArtistRepository","put");
+        artists.add(item);
+        artistsMap.put(item.getId(), item);
+        return item.getId();
     }
 
     @Override
     public List<Long> putAll(List<Artist> items) {
-        return null;
+        audit.writeData("ArtistRepository","putAll");
+        artists.addAll(items);
+        final var ids = new ArrayList<Long>();
+        return ids;
     }
 }
