@@ -1,8 +1,14 @@
 package entities;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name="contacts")
 public class Contact {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String email;
     private String phone;

@@ -4,7 +4,4 @@ module csv.reader {
     exports reader;
     exports writer;
     requires java.sql;
-    requires org.aspectj.weaver;
-    requires reflections;
-
 }

@@ -1,11 +1,22 @@
 package entities;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name="tickets")
 public class Ticket {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Account account;
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Event event;
+
     private Double price;
 
     public Ticket() {

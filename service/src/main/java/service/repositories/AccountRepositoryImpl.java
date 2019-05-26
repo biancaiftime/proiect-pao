@@ -11,6 +11,9 @@ public class AccountRepositoryImpl implements AccountRepository {
     private final List<Account> accounts = new ArrayList<Account>();
     private final Writer audit = new Writer();
 
+    public AccountRepositoryImpl() {
+    }
+
     @Override
     public Optional<Account> findById(Long id) {
         audit.writeData("AccountRepository", "findById");

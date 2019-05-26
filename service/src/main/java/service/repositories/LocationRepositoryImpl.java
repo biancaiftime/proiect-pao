@@ -10,6 +10,10 @@ import java.util.Optional;
 
 public class LocationRepositoryImpl implements LocationRepository {
     private final Map<Long, Location> locations = new HashMap<>();
+
+    public LocationRepositoryImpl() {
+    }
+
     @Override
     public Optional<Location> findById(Long id) {
         return Optional.empty();

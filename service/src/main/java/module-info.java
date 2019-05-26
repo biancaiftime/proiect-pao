@@ -1,5 +1,6 @@
 module service {
     requires model;
     requires  csv.reader;
-    requires reflections;
+    requires java.sql;
+    exports service.repositories;
 }

@@ -19,22 +19,24 @@ public class EventRepositoryImpl implements EventRepository {
     private final ArrayList<Event> events = new ArrayList<>();
     private final Writer audit = new Writer();
 
+    public EventRepositoryImpl() {
+    }
+
     @Override
-    @Audit(className = "EventRepository", methodName = "findById")
+    //@Audit(className = "EventRepository", methodName = "findById")
     public Optional<Event> findById(Long id) {
         audit.writeData("EventRepository","findById");
         return Optional.ofNullable(events_map.get(id));
     }
 
     @Override
-    @Audit(className = "EventRepository", methodName = "getAll")
+    //@Audit(className = "EventRepository", methodName = "getAll")
     public List<Event> getAll() {
         audit.writeData("EventRepository","getAll");
         return new ArrayList<>(events);
     }
 
     @Override
-    @Audit(className = "EventRepository", methodName = "put")
     public Long put(Event item) {
         audit.writeData("EventRepository","put");
         events_map.put(item.getId(), item);
@@ -43,7 +45,7 @@ public class EventRepositoryImpl implements EventRepository {
     }
 
     @Override
-    @Audit(className = "EventRepository", methodName = "putAll")
+    //@Audit(className = "EventRepository", methodName = "putAll")
     public List<Long> putAll(List<Event> items) {
         audit.writeData("EventRepository","putAll");
         /*final var ids = items.stream()
@@ -59,7 +61,7 @@ public class EventRepositoryImpl implements EventRepository {
     }
 
     @Override
-    @Audit(className = "EventRepository", methodName = "getByArtist")
+    //@Audit(className = "EventRepository", methodName = "getByArtist")
     public List<Event> getByArtist(Artist artist) {
         audit.writeData("EventRepository","getByArtist");
         ArrayList<Event> events_artist = new ArrayList<>();
@@ -72,7 +74,7 @@ public class EventRepositoryImpl implements EventRepository {
     }
 
     @Override
-    @Audit(className = "EventRepository", methodName = "getByType")
+    //@Audit(className = "EventRepository", methodName = "getByType")
     public List<Event> getByType(EventType eventType) {
         audit.writeData("EventRepository","getByType");
 
@@ -86,7 +88,7 @@ public class EventRepositoryImpl implements EventRepository {
     }
 
     @Override
-    @Audit(className = "EventRepository", methodName = "getByCategory")
+    //@Audit(className = "EventRepository", methodName = "getByCategory")
     public List<Event> getByCategory(Category category) {
         audit.writeData("EventRepository","getByCategory");
 
@@ -100,7 +102,7 @@ public class EventRepositoryImpl implements EventRepository {
     }
 
     @Override
-    @Audit(className = "EventRepository", methodName = "getByStatus")
+    //@Audit(className = "EventRepository", methodName = "getByStatus")
     public List<Event> getByStatus(Status status) {
         audit.writeData("EventRepository","getByStatus");
         ArrayList<Event> events_status = new ArrayList<>();
@@ -113,7 +115,7 @@ public class EventRepositoryImpl implements EventRepository {
     }
 
     @Override
-    @Audit(className = "EventRepository", methodName = "getByLocation")
+    //@Audit(className = "EventRepository", methodName = "getByLocation")
     public List<Event> getByLocation(Location location) {
         audit.writeData("EventRepository","getByLocation");
         ArrayList<Event> events_location = new ArrayList<>();

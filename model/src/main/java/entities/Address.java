@@ -1,8 +1,14 @@
 package entities;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name="addresses")
 public class Address {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String region;
     private String city;
@@ -48,9 +54,4 @@ public class Address {
         return streetNumber;
     }
 
-    @Override
-    public String toString() {
-        return "Region: " + this.region + ", city: " + this.city
-                + ", street: " + this.street + ", street number: " + this.streetNumber;
-    }
 }

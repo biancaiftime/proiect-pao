@@ -11,6 +11,9 @@ public class ArtistRepositoryImpl implements ArtistRepository {
     private final List<Artist> artists = new ArrayList<Artist>();
     private final Writer audit = new Writer();
 
+    public ArtistRepositoryImpl() {
+    }
+
     @Override
     public Optional<Artist> findById(Long id) {
         audit.writeData("ArtistRepository","findById");

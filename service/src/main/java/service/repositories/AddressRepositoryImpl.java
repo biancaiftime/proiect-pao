@@ -10,6 +10,10 @@ import java.util.Optional;
 
 public class AddressRepositoryImpl implements AddressRepository {
     private final Map<Long, Address> addresses = new HashMap<>();
+
+    public AddressRepositoryImpl() {
+    }
+
     @Override
     public Optional<Address> findById(Long id) {
         return Optional.empty();

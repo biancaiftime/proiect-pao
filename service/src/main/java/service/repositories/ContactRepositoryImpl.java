@@ -10,6 +10,10 @@ import java.util.Optional;
 
 public class ContactRepositoryImpl implements ContactRepository {
     private final Map<Long, Contact> contacts = new HashMap<>();
+
+    public ContactRepositoryImpl() {
+    }
+
     @Override
     public Optional<Contact> findById(Long id) {
         return Optional.empty();

@@ -4,19 +4,31 @@ import utils.Category;
 import utils.EventType;
 import utils.Status;
 
+import javax.persistence.*;
 import java.time.Instant;
 import java.util.Date;
 import java.util.Objects;
 
+
+@Entity
+@Table(name="events")
 public class Event {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private Category category;
     private EventType type;
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Location location;
+
     private Instant date;
     private Status status;
     private String details;
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Artist artist;
 
     public Event() {

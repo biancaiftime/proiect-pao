@@ -1,10 +1,6 @@
 package writer;
 
 import com.opencsv.CSVWriter;
-import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -28,7 +24,7 @@ public class Writer {
 
             String message = "Method " + methodName + " from class " + className + " was called.";
             String[] messageToCSV = {timestamp.toString(), message};
-            System.out.println(timestamp.toString());
+            //System.out.println(timestamp.toString());
 
             writer.writeNext(messageToCSV);
 

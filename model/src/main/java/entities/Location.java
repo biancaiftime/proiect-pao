@@ -2,12 +2,21 @@ package entities;
 
 import entities.Address;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name="locations")
 public class Location {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Address address;
+
     private String details;
 
     public Location() {

@@ -13,6 +13,9 @@ public class TicketRepositoryImpl implements TicketRepository {
     private final Map<Long, Ticket> tickets_map = new HashMap<>();
     private final ArrayList<Ticket> tickets = new ArrayList<>();
 
+    public TicketRepositoryImpl() {
+    }
+
     @Override
     public Optional<Ticket> findById(Long id) {
         return Optional.ofNullable(tickets_map.get(id));

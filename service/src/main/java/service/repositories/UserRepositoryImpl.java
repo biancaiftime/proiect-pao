@@ -13,6 +13,9 @@ public class UserRepositoryImpl implements UserRepository {
     private final List<User> users = new ArrayList<User>();
     private final Writer audit = new Writer();
 
+    public UserRepositoryImpl() {
+    }
+
     @Override
     public Optional<User> findById(Long id) {
         audit.writeData("UserRepository","findById");
