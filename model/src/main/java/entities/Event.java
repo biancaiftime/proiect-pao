@@ -85,7 +85,7 @@ public class Event {
 
     @Override
     public String toString() {
-        return "Event: " + this.name + ", category: " + this.category + ", type: " + this.type + ", location: " +
-                this.location + ", date: " + this.date + ", details: " + this.details + ", artist: " + this.artist;
+        return this.name + ", category: " + this.category + ", type: " + this.type + "\n, location: " +
+                this.location + "\n, date: " + this.date + ", artist: " + this.artist;
     }
 }

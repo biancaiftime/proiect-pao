@@ -54,4 +54,9 @@ public class Address {
         return streetNumber;
     }
 
+    @Override
+    public String toString() {
+        return " region: " + region + ", city: " + city
+                +",\n street:" + street + ", street number: " + streetNumber ;
+    }
 }

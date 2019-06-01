@@ -48,8 +48,7 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Name: " + this.name + ", address: " + this.address
-                + ", details: " + this.address;
+        return "Name: " + this.name + ", address: " + this.address;
     }
 }
 

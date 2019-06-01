@@ -29,7 +29,7 @@ public class Account {
         else throw new IllegalArgumentException("Username cannot be null or empty.");
         if (password != null && !password.trim().isEmpty())
             this.password = password;
-        else throw new IllegalArgumentException("Region cannot be null or empty.");
+        else throw new IllegalArgumentException("Password cannot be null or empty.");
         this.user = Objects.requireNonNull(user);
     }
 
@@ -47,6 +47,10 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Username: " + this.username + ", user: " + this.user;
+        return "Account{" +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", user=" + user +
+                '}';
     }
 }

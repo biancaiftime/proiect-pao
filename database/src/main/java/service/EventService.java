@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 import java.util.function.Consumer;
 
 public final class EventService {
@@ -45,9 +46,9 @@ public final class EventService {
         return eventDao.getEventById(id);
     }
 
-//    public List<Order> getOrders() {
-//        final var em = emf.createEntityManager();
-//        final var orderDao = new OrderDao(em);
-//        return orderDao.getOrders();
-//    }
+    public List<Event> getEvents() {
+        final var em = emf.createEntityManager();
+        final var eventDao = new EventDao(em);
+        return eventDao.getEvents();
+    }
 }

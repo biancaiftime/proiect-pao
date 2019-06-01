@@ -39,6 +39,13 @@ public class User {
         this.address = Objects.requireNonNull(address);
         this.contact = Objects.requireNonNull(contact);
     }
+    public User(String name, String surname) {
+        if (name != null && !name.trim().isEmpty())
+            this.name = name;
+        else throw new IllegalArgumentException("Name cannot be null or empty.");
+        if (surname != null && !surname.trim().isEmpty())
+            this.surname = surname;
+    }
 
     public String getName() {
         return name;

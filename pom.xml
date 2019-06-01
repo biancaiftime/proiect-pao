@@ -13,6 +13,7 @@
         <module>service</module>
         <module>csv-reader</module>
         <module>database</module>
+        <module>presentation</module>
     </modules>
 
     <properties>
