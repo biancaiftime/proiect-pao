@@ -10,15 +10,14 @@ public class ArtistReader extends Reader<Artist> {
 
     private static List<Artist> artistList = new ArrayList<Artist>();
 
-    public static void main(String[] args) {
+    @Override
+    public void run() {
         ArtistReader artistReader = new ArtistReader();
 
         artistList = artistReader.readAndCreateObjects(
                 "E:\\Projects\\Laboratoare an II sem II\\PAO\\proiect-pao\\csv-reader\\src\\main\\resources\\artist.csv"
         );
 
-        for(Artist artist : artistList)
-            System.out.println(artist);
     }
 
 

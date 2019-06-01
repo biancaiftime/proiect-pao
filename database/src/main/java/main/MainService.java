@@ -1,6 +1,7 @@
 package main;
 
 
+import app.MainReader;
 import entities.*;
 import reader.AccountReader;
 import reader.ArtistReader;
@@ -19,11 +20,10 @@ public class MainService {
     public static void main(String[] args) throws SQLException {
 
         //addElements(args);
-        AccountService accountService = AccountService.getInstance();
-        accountService.getAccounts().stream().forEach(System.out::println);
+
     }
 
-    public static void addElements(String[] args) throws SQLException {
+    public static void addElements(String[] args) throws SQLException, InterruptedException {
         EventService eventService = EventService.getInstance();
         AccountService accountService = AccountService.getInstance();
 
@@ -67,10 +67,7 @@ public class MainService {
         accountService.addAccount(Vlad);
         accountService.addAccount(Alex);
 
-        AccountReader.main(args);
-        ArtistReader.main(args);
-        EventReader.main(args);
-        UserReader.main(args);
+        MainReader.main(args);
 
         EventReader.getEventList().stream().forEach(eventService::addEvent);
         AccountReader.getAccountList().stream().forEach(accountService::addAccount);

@@ -3,4 +3,5 @@ module service {
     requires  csv.reader;
     requires java.sql;
     exports service.repositories;
+    exports service.app;
 }

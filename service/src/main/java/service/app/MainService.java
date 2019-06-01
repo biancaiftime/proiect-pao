@@ -1,5 +1,6 @@
 package service.app;
 
+import app.MainReader;
 import reader.AccountReader;
 import reader.ArtistReader;
 import reader.EventReader;
@@ -8,7 +9,7 @@ import service.repositories.*;
 import utils.Category;
 
 public class MainService {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException{
 
         EventRepositoryImpl eventRepository = new EventRepositoryImpl();
         AccountRepositoryImpl accountRepository = new AccountRepositoryImpl();
@@ -22,10 +23,7 @@ public class MainService {
             System.out.println(event.getName());
         });
 
-        AccountReader.main(args);
-        ArtistReader.main(args);
-        EventReader.main(args);
-        UserReader.main(args);
+        MainReader.main(args);
 
         accountRepository.putAll(AccountReader.getAccountList());
         artistRepository.putAll(ArtistReader.getArtistList());

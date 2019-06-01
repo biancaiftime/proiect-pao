@@ -6,8 +6,9 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Reader<T> {
+public abstract class Reader<T>  implements Runnable {
     CSVReader csvReader = null;
+
 
     public List<T> readAndCreateObjects(String path) {
 

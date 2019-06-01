@@ -1,12 +1,10 @@
 package reader;
 
-import com.opencsv.CSVReader;
 import entities.Account;
 import entities.Address;
 import entities.Contact;
 import entities.User;
 
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,18 +13,12 @@ public class AccountReader extends Reader<Account> {
 
     private static List<Account> accountList = new ArrayList<Account>();
 
-    public static void main(String args[]) {
+    public void run() {
 
         AccountReader accountReader = new AccountReader();
 
         accountList = accountReader.readAndCreateObjects(
                 "E:\\Projects\\Laboratoare an II sem II\\PAO\\proiect-pao\\csv-reader\\src\\main\\resources\\account.csv");
-
-        for(Account account : accountList){
-            System.out.println(account);
-        }
-
-
 
     }
 

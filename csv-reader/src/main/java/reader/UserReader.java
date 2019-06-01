@@ -12,7 +12,7 @@ public class UserReader extends Reader<User> {
 
     private static List<User> userList = new ArrayList<User>();
 
-    public static void main(String[] args) {
+    public void run() {
 
         UserReader userReader = new UserReader();
 
@@ -20,8 +20,6 @@ public class UserReader extends Reader<User> {
                 "E:\\Projects\\Laboratoare an II sem II\\PAO\\proiect-pao\\csv-reader\\src\\main\\resources\\user.csv"
         );
 
-        for (User user : userList)
-            System.out.println(user);
     }
 
 
