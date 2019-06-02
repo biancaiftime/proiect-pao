@@ -37,5 +37,12 @@ public final class AccountDao {
         if(accounts.isEmpty()) return null;
         return accounts.get(0).getUser();
     }
+    public Account getAccountbyUser(User user){
+        final  String sql ="SELECT a FROM Account a WHERE a.user = :user";
+        TypedQuery<Account> query = em.createQuery(sql, Account.class);
+        query.setParameter("user", user);
+        List<Account> accounts = query.getResultList();
+        return accounts.get(0);
+    }
 
 }

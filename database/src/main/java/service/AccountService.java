@@ -58,4 +58,9 @@ public final class AccountService {
         final var accountDao = new AccountDao(em);
         return accountDao.findUser(username, password);
     }
+    public  Account getAccountbyUser(User user){
+        final var em = emf.createEntityManager();
+        final var accountDao = new AccountDao(em);
+        return accountDao.getAccountbyUser(user);
+    }
 }

@@ -1,9 +1,12 @@
 package dashboard;
 
 import entities.Event;
+import entities.Ticket;
 import entities.User;
 import login.Login;
+import service.AccountService;
 import service.EventService;
+import service.TicketService;
 import service.repositories.EventRepositoryImpl;
 
 import javax.swing.*;
@@ -16,6 +19,9 @@ public class DashboardFrame extends JFrame implements ActionListener {
 
     private EventService eventService = EventService.getInstance();
     private EventRepositoryImpl eventRepository = new EventRepositoryImpl();
+    private TicketService ticketDao = TicketService.getInstance();
+    private AccountService accountService = AccountService.getInstance();
+    private User user;
     Container container = getContentPane();
     JPanel header = new JPanel();
     JPanel content = new JPanel();
@@ -30,6 +36,7 @@ public class DashboardFrame extends JFrame implements ActionListener {
     JButton logout = new JButton("Logout");
 
     DashboardFrame(User user) {
+        this.user = user;
         eventRepository.putAll(eventService.getEvents());
         userLabel = new JLabel("Welcome, " + user.getName() + " " + user.getSurname(), JLabel.CENTER);
         createEventList();
@@ -101,6 +108,7 @@ public class DashboardFrame extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(this, event.toString());
         }
         if (e.getSource() == buyTicketButton) {
+            ticketDao.addTicket(new Ticket(accountService.getAccountbyUser(user), getEvent(eventList.getSelectedIndex()), 200D));
             JOptionPane.showMessageDialog(this, "You have bought a ticket to: " + eventList.getSelectedValue());
         }
         if(e.getSource() == logout){
