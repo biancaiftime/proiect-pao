@@ -63,4 +63,14 @@ public final class AccountService {
         final var accountDao = new AccountDao(em);
         return accountDao.getAccountbyUser(user);
     }
+    public  void deleteAccount(Account account){
+        final var em = emf.createEntityManager();
+        final var accountDao = new AccountDao(em);
+        runInTransaction(account, accountDao::deleteAccount, em.getTransaction());
+    }
+    public  void updateAccount(Account account){
+        final var em = emf.createEntityManager();
+        final var accountDao = new AccountDao(em);
+        runInTransaction(account, accountDao::updateAccount, em.getTransaction());
+    }
 }

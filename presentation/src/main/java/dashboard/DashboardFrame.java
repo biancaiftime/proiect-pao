@@ -1,5 +1,6 @@
 package dashboard;
 
+import accountEdit.AccountEdit;
 import entities.Event;
 import entities.Ticket;
 import entities.User;
@@ -34,6 +35,7 @@ public class DashboardFrame extends JFrame implements ActionListener {
     JButton buyTicketButton = new JButton("Buy Ticket");
     JPanel logoutPanel = new JPanel();
     JButton logout = new JButton("Logout");
+    JButton editAccount =  new JButton("Edit Account");
 
     DashboardFrame(User user) {
         this.user = user;
@@ -83,6 +85,7 @@ public class DashboardFrame extends JFrame implements ActionListener {
         header.add(titleLabel);
         container.add(BorderLayout.NORTH, header);
         logoutPanel.add(logout);
+        logoutPanel.add(editAccount);
         container.add(BorderLayout.SOUTH, logoutPanel);
         content.add(eventList);
         container.add(BorderLayout.CENTER, content);
@@ -98,6 +101,7 @@ public class DashboardFrame extends JFrame implements ActionListener {
         detailsButton.addActionListener(this);
         buyTicketButton.addActionListener(this);
         logout.addActionListener(this);
+        editAccount.addActionListener(this);
     }
 
     @Override
@@ -114,6 +118,10 @@ public class DashboardFrame extends JFrame implements ActionListener {
         if(e.getSource() == logout){
             dispose();
             Login.main(new String[0]);
+        }
+        if(e.getSource() == editAccount) {
+            AccountEdit accountEdit = new AccountEdit();
+            accountEdit.startAccountEdit(accountService.getAccountbyUser(user));
         }
 
     }

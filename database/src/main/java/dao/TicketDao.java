@@ -26,4 +26,8 @@ public final class TicketDao {
         TypedQuery<Ticket> query = em.createQuery(sql, Ticket.class);
         return query.getResultList();
     }
+
+    public void deleteTicket(Ticket ticket){
+        em.remove(ticket);
+    }
 }

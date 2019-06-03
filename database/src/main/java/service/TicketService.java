@@ -51,4 +51,10 @@ public final class TicketService {
         final var ticketDao = new TicketDao(em);
         return ticketDao.getTickets();
     }
+
+    public void deleteTicket(Ticket ticket){
+        final var em = emf.createEntityManager();
+        final var ticketDao = new TicketDao(em);
+        runInTransaction(ticket, ticketDao::deleteTicket,em.getTransaction());
+    }
 }

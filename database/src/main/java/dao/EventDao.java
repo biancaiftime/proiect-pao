@@ -28,4 +28,8 @@ public final class EventDao {
         return query.getResultList();
     }
 
+    public void deleteEvent(Event event){
+        em.remove(event);
+    }
+
 }

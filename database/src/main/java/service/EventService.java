@@ -51,4 +51,9 @@ public final class EventService {
         final var eventDao = new EventDao(em);
         return eventDao.getEvents();
     }
+    public void deleteEvent(Event event){
+        final var em = emf.createEntityManager();
+        final var eventDao = new EventDao(em);
+        runInTransaction(event, eventDao::deleteEvent, em.getTransaction());
+    }
 }

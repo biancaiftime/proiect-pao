@@ -76,4 +76,12 @@ public class User {
         return "Name: " + this.name + ", surname: " + this.surname + ", age: " + this.age
                 + ", Address: " + this.address + ", contact: " + this.contact;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
 }
